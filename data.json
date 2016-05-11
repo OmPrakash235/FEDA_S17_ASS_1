@@ -1,0 +1,20 @@
+[
+	{
+		"title": "Training on jQuery Part I",
+		"author": "Devraj",
+		"duration": "1 hrs",
+		"details": "This session will be on Basic jQuery"
+	},
+	{
+		"title": "Training on jQuery Part II",
+		"author": "Devraj",
+		"duration": "2 hrs",
+		"details": "This session will be on Advanced jQuery"
+	},
+	{
+		"title": "Training on Bootstrap",
+		"author": "Devdutt",
+		"duration": "1.5 hrs",
+		"details": "This session will be on Bootstrap"
+	}
+]

@@ -1,0 +1,51 @@
+<!-- Write a http get function to read values from a json file and display the result in template. -->
+
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<title>AngularJS $http</title>
+		<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+	</head>
+	<body class="container">
+		<div ng-controller="newCtrl" class="row">
+			<div ng-show="errorMsg" class="alert alert-danger" role="alert">{{errorMsg}}</div>
+			<div ng-show="sessions">
+				<div class="h2">Session Details from JSON</div><br/>
+				<table class="table table-striped table-responsive">
+					<thead>
+						<tr>
+							<th>Title</th>
+							<th>Details</th>
+							<th>Author</th>
+							<th>Duration</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="s in sessions">
+							<td>{{s.title}}</td>
+							<td>{{s.details}}</td>
+							<td>{{s.author}}</td>
+							<td>{{s.duration}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+	<script type="text/javascript">
+		var module = angular.module("myApp", []);
+
+		module.controller("newCtrl", function($scope, $http){
+			$http.get('data.json')
+			.success(function (data, status, headers, config) {
+				$scope.sessions = data;
+				console.log(status);
+			})
+			.error(function (data, status, headers, config) {
+				$scope.errorMsg = 'Data loading failed. Status code: ' + status;
+				console.log(status);
+			});
+		});
+	</script>
+</html>
